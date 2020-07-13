@@ -11,11 +11,12 @@ import glob
 import numpy as np
 from keras.models import load_model
 import nibabel as nib
-from model.showfigures import plot_transform, unet3d_report
-from model.tools import categorise_prediction
+from ..model.showfigures import plot_transform, unet3d_report
+from ..model.tools import categorise_prediction
+from ..model.evalmatrix import loss_func, dice_coef, IoU
 
 #%% 
-def unet3d_predict(model_dir, X, image_folder, output_folder, channel_order):
+def unet3d_predict(model_dir, X_dir, image_folder, output_folder, channel_order):
     """
     Args:
     model_dir: string
@@ -48,7 +49,7 @@ def unet3d_predict(model_dir, X, image_folder, output_folder, channel_order):
     X = np.load(X_dir)
 
     folder_list = os.listdir(image_folder)
-    for i in range(folder_size):
+    for i in range(len(folder_list)):
         # get the pixel spacing of 3 dimensions
         os.chdir(image_folder + '/' + folder_list[i])
         X_filename = glob.glob('*.nii')
@@ -69,4 +70,4 @@ def unet3d_predict(model_dir, X, image_folder, output_folder, channel_order):
         output_image = output_folder + '/' + X_filename[:name_ord] + '.png'
         
         # plot the image
-        unet3d_report(X_test, y_pred, output_image, voxel, plot_size, channel_order)
+        unet3d_report(X_test, y_pred, output_image, voxel, channel_order)
