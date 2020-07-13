@@ -28,7 +28,7 @@ import keras
 from keras.models import Model
 from keras.layers import Input, Concatenate, BatchNormalization, Activation, Conv3D, UpSampling3D, MaxPooling3D
 from keras.optimizers import Adam
-from model.evalmatrix import loss_func, dice_coef, IoU
+from ..model.evalmatrix import loss_func, dice_coef, IoU
 
 #%% Unet3D
 
