@@ -11,9 +11,9 @@ import glob
 import numpy as np
 from keras.models import load_model
 import nibabel as nib
-from ..model.showfigures import plot_transform, unet3d_report
-from ..model.tools import categorise_prediction
-from ..model.evalmatrix import loss_func, dice_coef, IoU
+from .model.showfigures import plot_transform, unet3d_report
+from ..tools import categorise_prediction
+from .model.evalmatrix import loss_func, dice_coef, IoU
 
 #%% 
 def unet3d_predict(model_dir, X_dir, image_folder, output_folder, channel_order):
