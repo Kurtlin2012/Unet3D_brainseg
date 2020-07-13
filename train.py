@@ -10,7 +10,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
 from keras.callbacks import History
-from model.unet3d import unet3d
+from ..model.unet3d import unet3d
+from ..model.evalmatrix import loss_func, dice_coef, IoU
 
 
 def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None):
