@@ -12,7 +12,7 @@ import numpy as np
 from keras.models import load_model
 import nibabel as nib
 from .model.showfigures import plot_transform, unet3d_report
-from ..tools import categorise_prediction
+from .preprocessing.tools import categorise_prediction
 from .model.evalmatrix import loss_func, dice_coef, IoU
 
 #%% 
