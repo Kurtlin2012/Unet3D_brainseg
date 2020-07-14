@@ -20,12 +20,33 @@ import xlsxwriter as xlw
 
 #%% 
 def imagegenerator3d(ori, gt, output_folder, num = 50):
+    
+    """
+    Input:
+        ori: 5-D Numpy 
+            Matrix including all the original MR images made by nii2npy. Default shape of matrix is [number, height, width, depth, channel = 1].
+        gt: 5-D Numpy
+            Matrix including all the ground truth made by nii2npy. Default shape of matrix is [number, height, width, depth, channel = 10].
+        output_folder: String
+            Path of folder for augmented datas.
+        num: int
+            The amount of augmented datas.
+    
+    Output:
+        new_img: 5-D Numpy
+            Augmented MRI data. The shape of matrix is [number=1, hetght, width, depth, channel=1].            
+        new_gt: 5-D Numpy
+            Augmented ground truth. The shape of matrix is [number=1, hetght, width, depth, channel].
+        para: List
+            List of all parameters for each augmented data, including the index of original image, shift factor, zoom factor and rotate factor.
+    """
+    
     # load the numpy files
     X_ori = np.load(ori)
     Y_ori = np.load(gt)
     
     # list for parameters
-    param = [['No.', 'Original File Index','Shift Range x','Shift Range Y','Zoom Range','Rotate Angle']]
+    param = [['No.', 'Original File Index','Shift Factor X','Shift Factor Y','Zoom Factor','Rotate Angle']]
         
     for i in range(num):
         # parameters
@@ -80,6 +101,8 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
     
         # normalize and save
         new_img = (new_img-new_img.mean())/new_img.std()
+        new_img = np.expand_dims(new_img, axis = 0)
+        new_img = np.expand_dims(new_img, axis = 4)
         param.append([i+1, order+1, shift_range_x, shift_range_y, zoom_range, rotate_angle])
         print('Saving augment X no.' + str(i+1))
         
@@ -136,6 +159,7 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
         
         
         new_gt = np.round((new_gt-new_gt.min()/(new_gt.max()-new_gt.min()))).astype(bool)
+        new_gt = np.expand_dims(new_gt, axis=0)
         
         # saving the augment ground truth separately
         print('Saving augment Y no.' + str(i+1))
