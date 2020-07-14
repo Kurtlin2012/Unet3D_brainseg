@@ -8,7 +8,7 @@ Created on Fri Jun 17 09:48:50 2020
 # This script can be used when the training data is not enough.                 
 # It will read the numpy file for both image and ground truth made from nii2npy,
 # then randomly shift, zoom in/out and rotate the 3d matrix.
-# All the parameters will save when the script ends. 
+# All the parameters will be saved when the program ends. 
 #################################################################################
 
 
