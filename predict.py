@@ -17,19 +17,26 @@ from .model.evalmatrix import loss_func, dice_coef, IoU
 
 #%% 
 def unet3d_predict(weight_dir, X_dir, image_folder, output_folder, channel_order):
+    
     """
-    Args:
-    weight_dir: string
-        Path of the weight(.h5 file).
-    X: numpy
-        Path of the numpy file. The shape of the matrix will be [number, height, width, depth, channel=1].
-    image_folder: string
-        Path of the folder of original images. It will be used to check the original nifti file's header. Need to confirm if the order of the folder is same to the 3D numpy matrix(X).
-    output_folder: string
-        Path of the folder to store the output plots.
-    channel_order: list, optional
-        The channel of LCRB, LGM, LWM, RCRB, RGM, RWM. The default is [3,4,1,7,8,5].
+    Input:
+        weight_dir: string
+            Path of the weight(.h5 file).
+        X: numpy
+            Path of the numpy file. The shape of the matrix will be [number, height, width, depth, channel=1].
+        image_folder: string
+            Path of the folder of original images. It will be used to check the original nifti file's header. Need to confirm if the order of the folder is same to the 3D numpy matrix(X).
+        output_folder: string
+            Path of the folder to store the output plots.
+        channel_order: list, optional
+            The channel of LCRB, LGM, LWM, RCRB, RGM, RWM. The default is [3,4,1,7,8,5].
+        
+    Output:
+        report: .png file
+            A report will be generate that have preview of the result of segmentation including axial, coronal and sagittal planes, ICV(intracranial volume) and percentages of each part of the brain.
+    
     """
+    
     # input the order of LCRB, LGM, LWM, RCRB, RGM, RWM channels
     ask = input('Do you want to change the order of the channel?(Y/N)')
     if ask == 'Y' or ask == 'y':
