@@ -5,15 +5,6 @@ Created on Tue Jun 30 15:24:51 2020
 @author: Ching-Ting Kurt Lin
 """
 
-import pickle
-import numpy as np
-import matplotlib.pyplot as plt
-from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
-from keras.callbacks import History
-from .model.unet3d import unet3d
-from .model.evalmatrix import loss_func, dice_coef, IoU
-
-
 def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None):
     
     """
@@ -33,6 +24,14 @@ def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None):
         Line charts: .png file
             At the end of training, the line charts of dice coefficient, loss and IoU will be saved, including results of training data and validation data.
     """
+    
+    import pickle
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping
+    from keras.callbacks import History
+    from .model.unet3d import unet3d
+    from .model.evalmatrix import loss_func, dice_coef, IoU
     
     X = np.load(X_dir)
     Y = np.load(Y_dir)
