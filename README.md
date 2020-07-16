@@ -15,20 +15,18 @@ numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(ski
   <ol><li>Convert nifti files to numpy matrices:</li>
   <li>(Optional) Data augmentation:</li></ol><br>
 <li>Training</li><br>
-<p><code>from Unet3D.train import unet3d_train</code><br/>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D.train import unet3d_train</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>Y_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>output_folder = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>% optional</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% optional<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights)</code></p>
   
 <li>Testing</li><br>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;from Unet3D.predict import unet3d_predict<br>
-&nbsp;&nbsp;&nbsp;&nbsp;weight_dir = 'path'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;X_dir = 'path'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ori_folder = 'path'&nbsp;&nbsp;&nbsp;&nbsp;% This path should be same as ori_folder in nii2npy function.<br> 
-&nbsp;&nbsp;&nbsp;&nbsp;output_folder = 'path'<br> 
-&nbsp;&nbsp;&nbsp;&nbsp;% optional, change if the index of each channel is different from default.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;% channel_order = [3,4,1,7,8,5]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)</p></menu>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D.predict import unet3d_predict</code><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>weight_dir = 'path'</code><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>ori_folder = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% This path should be same as ori_folder in nii2npy function.<br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;<code>output_folder = 'path'</code><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>% channel_order = [3,4,1,7,8,5]</code>&nbsp;&nbsp;&nbsp;&nbsp;% optional, change if the index of each channel is different from default.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)</code></p></menu>
