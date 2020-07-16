@@ -12,6 +12,7 @@ numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(ski
 
 <strong>How to Use</strong>
 <menu><li>Preprocessing</li>
+  <ol><li>Convert nifti files to numpy matrices:</li>
+  <li>Data augmentation:</li></ol>
 <li>Training</li>
 <li>Testing</li></menu>
-
