@@ -13,6 +13,26 @@ from skimage.transform import resize
 
 #%%
 def nii2npy(ori_folder, gt_folder, output_folder, resolution = [256,256,64]):
+    
+    """
+    Input:
+        ori_folder: string
+            Folder path of the training data.
+        gt_folder: string
+            Folder path of the ground truth.
+        output_folder: string
+            Folder path to keep the combined matrices.
+        resolution: list
+            Set the shape of the 3D matrix. The input list should be [H(height), W(width), D(depth)].
+    
+    Output:
+        X: 5-D numpy matrix
+            Combined matrix of all the training data.
+        Y: 5-D numpy matrix
+            Combined matrix of all the grouth truth.
+    
+    """
+    
     os.chdir(ori_folder)
     folder_list = os.listdir()
     folder_list.sort(key=lambda x:x)
@@ -38,7 +58,7 @@ def nii2npy(ori_folder, gt_folder, output_folder, resolution = [256,256,64]):
     
     X = np.expand_dims(X, axis=4)
     os.chdir(output_folder)
-    np.save('X_all.npy', X)
+    np.save('X.npy', X)
     print('All 3D images were combined together, next...')
     del X
     
@@ -64,6 +84,6 @@ def nii2npy(ori_folder, gt_folder, output_folder, resolution = [256,256,64]):
             print('GT: Folder no.' + str(i+1))
         
     os.chdir(output_folder)
-    np.save('Y_all.npy', Y)
+    np.save('Y.npy', Y)
     print('Ground truth of the 3D images were combine together.')
     del Y
