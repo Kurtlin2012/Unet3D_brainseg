@@ -12,13 +12,6 @@ Created on Fri Jun 17 09:48:50 2020
 #################################################################################
 
 
-import os
-import numpy as np
-import random
-import scipy.ndimage as ndi
-import xlsxwriter as xlw
-
-#%% 
 def imagegenerator3d(ori, gt, output_folder, num = 50):
     
     """
@@ -40,6 +33,12 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
         para: List
             List of all parameters for each augmented data, including the index of original image, shift factor, zoom factor and rotate factor.
     """
+    
+    import os
+    import numpy as np
+    import random
+    import scipy.ndimage as ndi
+    import xlsxwriter as xlw
     
     # load the numpy files
     X_ori = np.load(ori)
