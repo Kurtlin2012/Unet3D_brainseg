@@ -3,11 +3,7 @@
 Created on Tue Jun 30 15:22:14 2020
 
 @author: Ching-Ting Kurt Lin
-"""
 
-from keras import backend as K
-
-"""
 Evaluation matrices of the Unet3D model, including loss function, dice coefficient and IoU(Intersection of Union).
 """
 
