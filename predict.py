@@ -6,7 +6,7 @@ Created on Mon Juy 1 14:55:55 2020
 @author: Ching-Ting Kurt Lin
 """
 
-def unet3d_predict(weight_dir, X_dir, image_folder, output_folder, channel_order):
+def unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order):
     
     """
     Input:
@@ -14,7 +14,7 @@ def unet3d_predict(weight_dir, X_dir, image_folder, output_folder, channel_order
             Path of the weight(.h5 file).
         X: numpy
             Path of the numpy file. The shape of the matrix will be [number, height, width, depth, channel=1].
-        image_folder: string
+        ori_folder: string
             Path of the folder of original images. It will be used to check the original nifti file's header. Need to confirm if the order of the folder is same to the 3D numpy matrix(X).
         output_folder: string
             Path of the folder to store the output plots.
@@ -54,10 +54,10 @@ def unet3d_predict(weight_dir, X_dir, image_folder, output_folder, channel_order
     # load the 3d image matrix
     X = np.load(X_dir)
 
-    folder_list = os.listdir(image_folder)
+    folder_list = os.listdir(ori_folder)
     for i in range(len(folder_list)):
         # get the pixel spacing of 3 dimensions
-        os.chdir(image_folder + '/' + folder_list[i])
+        os.chdir(ori_folder + '/' + folder_list[i])
         X_filename = glob.glob('*.nii')
         X_header = nib.load(X_filename[0]).header
         voxel = (X_header['dim'][1] * X_header['pixdim'][1]) * (X_header['dim'][2] * X_header['pixdim'][2]) * (X_header['dim'][3] * X_header['pixdim'][3]) / (X.shape[1] * X.shape[2] * X.shape[3])
