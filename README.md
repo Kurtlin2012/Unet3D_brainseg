@@ -10,8 +10,9 @@ A Unet3D model for brain tissue segmentation by using MRI T1 images.
 <strong>Modules needed:</strong>
 numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy, xlsxwriter
 
-<strong>How to Use</strong>
-<menu><li>Preprocessing</li>
+<strong>How to Use:</strong>
+<menu><li>Prepate</li>
+<li>Preprocessing</li>
   <ol><li>Convert nifti files to numpy matrices:</li>
   <li>(Optional) Data augmentation:</li></ol>
 <li>Training</li>
