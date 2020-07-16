@@ -6,16 +6,6 @@ Created on Mon Juy 1 14:55:55 2020
 @author: Ching-Ting Kurt Lin
 """
 
-import os
-import glob
-import numpy as np
-from keras.models import load_model
-import nibabel as nib
-from .model.showfigures import plot_transform, unet3d_report
-from .preprocessing.tools import categorise_prediction
-from .model.evalmatrix import loss_func, dice_coef, IoU
-
-#%% 
 def unet3d_predict(weight_dir, X_dir, image_folder, output_folder, channel_order):
     
     """
@@ -36,6 +26,15 @@ def unet3d_predict(weight_dir, X_dir, image_folder, output_folder, channel_order
             A report will be generate that have preview of the result of segmentation including axial, coronal and sagittal planes, ICV(intracranial volume) and percentages of each part of the brain.
     
     """
+    
+    import os
+    import glob
+    import numpy as np
+    from keras.models import load_model
+    import nibabel as nib
+    from .model.showfigures import plot_transform, unet3d_report
+    from .preprocessing.tools import categorise_prediction
+    from .model.evalmatrix import loss_func, dice_coef, IoU
     
     # input the order of LCRB, LGM, LWM, RCRB, RGM, RWM channels
     ask = input('Do you want to change the order of the channel?(Y/N)')
