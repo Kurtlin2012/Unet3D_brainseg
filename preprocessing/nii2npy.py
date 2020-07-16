@@ -5,13 +5,6 @@ Created on Tue Jun 30 13:30:30 2020
 @author: Ching-Ting Kurt Lin
 """
 
-import os
-import numpy as np
-import nibabel as nib
-import glob
-from skimage.transform import resize
-
-#%%
 def nii2npy(ori_folder, gt_folder, output_folder, resolution = [256,256,64]):
     
     """
@@ -32,6 +25,12 @@ def nii2npy(ori_folder, gt_folder, output_folder, resolution = [256,256,64]):
             Combined matrix of all the grouth truth.
     
     """
+    
+    import os
+    import numpy as np
+    import nibabel as nib
+    import glob
+    from skimage.transform import resize
     
     os.chdir(ori_folder)
     folder_list = os.listdir()
