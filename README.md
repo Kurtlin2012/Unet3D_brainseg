@@ -1,4 +1,4 @@
-# Unet3D
+# Unet3D: Brain Tissue Segmentation
 <strong>Editor: Ching-Ting Kurt Lin</strong>
 <br>A Unet3D model for brain tissue segmentation by using MRI T1 images.<br><br>
 <br><strong>Unet3D Model Diagram</strong><br>
