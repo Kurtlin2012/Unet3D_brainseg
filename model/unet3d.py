@@ -5,23 +5,7 @@ Created on Tue Jun 30 15:22:37 2020
 
 @author: Ching-Ting Kurt Lin
 
-
 This script is to create a Unet3D model.
-
-Input:
-    input_shape: numpy
-        The shape of input matrix [height, width, depth, channel=1]. Default is [256,256,64,1].
-    channels: int
-        The number of channels of the output. Default is 10.
-    pretrained_weights: .h5 file
-        Load the pretrained weights if it exists. Default is None.
-    learning_rate: float
-        Change the initial learning rate of the model.
-    
-Output:
-    model:
-        The Unet3D model.
-    
 """
 
 import keras
@@ -33,6 +17,23 @@ from ..model.evalmatrix import loss_func, dice_coef, IoU
 #%% Unet3D
 
 def unet3d(input_shape=[256,256,64,1], channels=10, pretrained_weights=None, learning_rate=1e-3):
+    
+    """
+    Input:
+        input_shape: numpy
+            The shape of input matrix [height, width, depth, channel=1]. Default is [256,256,64,1].
+        channels: int
+            The number of channels of the output. Default is 10.
+        pretrained_weights: .h5 file
+            Load the pretrained weights if it exists. Default is None.
+        learning_rate: float
+            Change the initial learning rate of the model. Default is 1e-3.
+
+    Output:
+        model:
+            The Unet3D model.
+    """
+    
     inputs = Input(shape=input_shape)
     enc = Conv3D(filters=32, kernel_size=(3,3,3), padding='same', kernel_initializer='glorot_normal')(inputs)
     temp = inputs
