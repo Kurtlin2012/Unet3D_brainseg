@@ -17,7 +17,7 @@ numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), sc
 &nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>Y_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>output_folder = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% optional<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% Optional<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights)</code></p>
   
 <li>Testing</li>
@@ -26,5 +26,5 @@ numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), sc
 &nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>ori_folder = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% This path should be same as ori_folder in nii2npy function.<br/> 
 &nbsp;&nbsp;&nbsp;&nbsp;<code>output_folder = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>% channel_order = [3,4,1,7,8,5]</code>&nbsp;&nbsp;&nbsp;&nbsp;% optional, change if the index of each channel is different from default.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>% channel_order = [3,4,1,7,8,5]</code>&nbsp;&nbsp;&nbsp;&nbsp;% Optional, change if the index of each channel is different from default.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)</code></p></menu>
