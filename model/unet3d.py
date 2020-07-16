@@ -8,14 +8,6 @@ Created on Tue Jun 30 15:22:37 2020
 This script is to create a Unet3D model.
 """
 
-import keras
-from keras.models import Model
-from keras.layers import Input, Concatenate, BatchNormalization, Activation, Conv3D, UpSampling3D, MaxPooling3D
-from keras.optimizers import Adam
-from ..model.evalmatrix import loss_func, dice_coef, IoU
-
-#%% Unet3D
-
 def unet3d(input_shape=[256,256,64,1], channels=10, pretrained_weights=None, learning_rate=1e-3):
     
     """
@@ -33,6 +25,13 @@ def unet3d(input_shape=[256,256,64,1], channels=10, pretrained_weights=None, lea
         model:
             The Unet3D model.
     """
+    
+    import keras
+    from keras import backend as K
+    from keras.models import Model
+    from keras.layers import Input, Concatenate, BatchNormalization, Activation, Conv3D, UpSampling3D, MaxPooling3D
+    from keras.optimizers import Adam
+    from ..model.evalmatrix import loss_func, dice_coef, IoU
     
     inputs = Input(shape=input_shape)
     enc = Conv3D(filters=32, kernel_size=(3,3,3), padding='same', kernel_initializer='glorot_normal')(inputs)
