@@ -16,11 +16,11 @@ from .preprocessing.tools import categorise_prediction
 from .model.evalmatrix import loss_func, dice_coef, IoU
 
 #%% 
-def unet3d_predict(model_dir, X_dir, image_folder, output_folder, channel_order):
+def unet3d_predict(weight_dir, X_dir, image_folder, output_folder, channel_order):
     """
     Args:
-    model_dir: string
-        Path of the .h5 file.
+    weight_dir: string
+        Path of the weight(.h5 file).
     X: numpy
         Path of the numpy file. The shape of the matrix will be [number, height, width, depth, channel=1].
     image_folder: string
@@ -43,7 +43,7 @@ def unet3d_predict(model_dir, X_dir, image_folder, output_folder, channel_order)
         channel_order=[3,4,1,7,8,5]
     
     # load the model
-    model = load_model(model_dir, custom_objects={'loss_func': loss_func, 'dice_coef': dice_coef, 'IoU': IoU}, compile=False)
+    model = load_model(weight_dir, custom_objects={'loss_func': loss_func, 'dice_coef': dice_coef, 'IoU': IoU}, compile=False)
     
     # load the 3d image matrix
     X = np.load(X_dir)
