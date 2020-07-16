@@ -4,7 +4,7 @@
 A Unet3D model for brain tissue segmentation by using MRI T1 images.
 
 
-<strong><u>Unet3D Model Diagram</u></strong>
+<font size="6">Unet3D Model Diagram</font>
 <a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="source: imgur.com" /></a>
 
 <strong><u>Modules needed:</u></strong>
