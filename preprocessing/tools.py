@@ -5,7 +5,6 @@ Created on Tue Jun 30 13:17:46 2020
 @author: Ching-Ting Kurt Lin
 """
 
-
 def categorise_prediction(max_ids, category):
     
     """
