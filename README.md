@@ -12,7 +12,7 @@ numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(ski
 <li>Preprocessing</li><br>
   <ol><li>Convert nifti files to numpy matrices:</li>
   <li>(Optional) Data augmentation:</li></ol><br>
-<br><li>Training</li>
+<br><li>Training</li><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D.train import unet3d_train</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>Y_dir = 'path'</code><br/>
@@ -20,7 +20,7 @@ numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(ski
 &nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% optional<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights)</code></p>
   
-<br><li>Testing</li>
+<br><li>Testing</li><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D.predict import unet3d_predict</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>weight_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
