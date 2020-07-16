@@ -23,6 +23,12 @@ numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(ski
 &nbsp;&nbsp;&nbsp;&nbsp;% pretrained_weights = 'path'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights)</p>
   
-<li>Testing</li></menu>
-<p>from Unet3D.predict import unet3d_predict<br>
-</p>
+<li>Testing</li><br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;from Unet3D.predict import unet3d_predict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;weight_dir = 'path'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;X_dir = 'path'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ori_folder = 'path'&nbsp;&nbsp;&nbsp;&nbsp;% This path should be same as ori_folder in nii2npy function.<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;output_folder = 'path'<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;% optional, change if the index of each channel is different from default.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;% channel_order = [3,4,1,7,8,5]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)</p></menu>
