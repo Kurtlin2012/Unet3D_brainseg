@@ -11,21 +11,10 @@ from skimage.transform import resize
 import matplotlib.pyplot as plt
 
 #%%
-def plot_transform(img):
-    """
-    Args:
-    img: numpy
-        3-dimension numpy matrix
-        
-    Returns:
-    img: numpy
-        3-dimension numpy matrix
-    """
-    img = np.swapaxes(img,0,1)
-    img = np.flip(img,0)
-    return img
+
 
 def unet3d_report(X, y_pred, output_image, voxel, channel_order):
+    
     """
     Args:
     X: numpy
@@ -39,6 +28,12 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
     channel_order: list
         The channel of LCRB, LGM, LWM, RCRB, RGM, RWM. The default is [3,4,1,7,8,5].
     """
+    
+    def plot_transform(img):
+        img = np.swapaxes(img,0,1)
+        img = np.flip(img,0)
+        return img
+    
     LGM = y_pred[:,:,:,:,channel_order[0]]
     LWM = y_pred[:,:,:,:,channel_order[1]]
     LCRB = y_pred[:,:,:,:,channel_order[2]]
