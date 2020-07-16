@@ -15,6 +15,25 @@ from .model.evalmatrix import loss_func, dice_coef, IoU
 
 
 def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None):
+    
+    """
+    Input:
+        X_dir: string
+            File path of the training data.
+        Y_dir: string
+            File path of the ground truth.
+        output_folder: string
+            Folder path to save the trained weights and the line charts of dice coefficient, loss and IoU.
+        pretrained_weights: string
+            File path of the pretrained weights(.h5 file).
+            
+    Output:
+        Trained weights: .h5 file
+            This model will check the dice coefficient in each iteration, if the coefficient grows, the weight will be kept until the end of training.
+        Line charts: .png file
+            At the end of training, the line charts of dice coefficient, loss and IoU will be saved, including results of training data and validation data.
+    """
+    
     X = np.load(X_dir)
     Y = np.load(Y_dir)
     premodel = pretrained_weights
