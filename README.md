@@ -1,9 +1,7 @@
 # Unet3D
 <strong>Editor: Ching-Ting Kurt Lin</strong>
-
-A Unet3D model for brain tissue segmentation by using MRI T1 images.<br><br>
-
-<strong>Unet3D Model Diagram</strong><br>
+<br>A Unet3D model for brain tissue segmentation by using MRI T1 images.<br><br>
+<br><strong>Unet3D Model Diagram</strong><br>
 <a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="source: imgur.com" /></a>
 
 <br><strong><u>Modules needed:</u></strong><br>
@@ -14,7 +12,7 @@ numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(ski
 <li>Preprocessing</li><br>
   <ol><li>Convert nifti files to numpy matrices:</li>
   <li>(Optional) Data augmentation:</li></ol><br>
-<li>Training</li><br>
+<br><li>Training</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D.train import unet3d_train</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>Y_dir = 'path'</code><br/>
@@ -22,7 +20,7 @@ numpy, pydicom, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(ski
 &nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% optional<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights)</code></p>
   
-<li>Testing</li><br>
+<br><li>Testing</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D.predict import unet3d_predict</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>weight_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
