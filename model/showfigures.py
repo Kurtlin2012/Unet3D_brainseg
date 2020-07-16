@@ -5,29 +5,26 @@ Created on Wed Jul  1 13:16:10 2020
 @author: Ching-Ting Kurt Lin
 """
 
-import numpy as np
-import cv2
-from skimage.transform import resize
-import matplotlib.pyplot as plt
-
-#%%
-
-
 def unet3d_report(X, y_pred, output_image, voxel, channel_order):
     
     """
-    Args:
-    X: numpy
-        The shape of the matrix will be [number, height, width, depth, channel=1].
-    y_pred: numpy
-        The shape of the matrix will be [number, height, width, depth, channel].        
-    output_image: string
-        Path to save the image.
-    voxel: float
-        Transform the matrix from resolution to real length(px3 to mm3) to get the real volume.
-    channel_order: list
-        The channel of LCRB, LGM, LWM, RCRB, RGM, RWM. The default is [3,4,1,7,8,5].
+    Augs:
+        X: numpy
+            The shape of the matrix will be [number, height, width, depth, channel=1].
+        y_pred: numpy
+            The shape of the matrix will be [number, height, width, depth, channel].        
+        output_image: string
+            Path to save the image.
+        voxel: float
+            Transform the matrix from resolution to real length(px3 to mm3) to get the real volume.
+        channel_order: list
+            The channel of LCRB, LGM, LWM, RCRB, RGM, RWM. The default is [3,4,1,7,8,5].
     """
+    
+    import numpy as np
+    import cv2
+    from skimage.transform import resize
+    import matplotlib.pyplot as plt
     
     def plot_transform(img):
         img = np.swapaxes(img,0,1)
