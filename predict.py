@@ -6,7 +6,7 @@ Created on Mon Juy 1 14:55:55 2020
 @author: Ching-Ting Kurt Lin
 """
 
-def unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order):
+def unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, num_of_channel=10, order_of_channel=[3,4,1,7,8,5]):
     
     """
     Input:
@@ -37,16 +37,16 @@ def unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order):
     from .model.evalmatrix import loss_func, dice_coef, IoU
     
     # input the order of LCRB, LGM, LWM, RCRB, RGM, RWM channels
-    ask = input('Do you want to change the order of the channel?(Y/N)')
-    if ask == 'Y' or ask == 'y':
-        channel_order[0] = int(input('Input the channel of LCRB: '))
-        channel_order[1] = int(input('Input the channel of LGM: '))
-        channel_order[2] = int(input('Input the channel of LWM: '))
-        channel_order[3] = int(input('Input the channel of RCRB: '))
-        channel_order[4] = int(input('Input the channel of RGM: '))
-        channel_order[5] = int(input('Input the channel of RWM: '))
-    else:
-        channel_order=[3,4,1,7,8,5]
+    # ask = input('Do you want to change the order of the channel?(Y/N)')
+    # if ask == 'Y' or ask == 'y':
+    #     channel_order[0] = int(input('Input the channel of LCRB: '))
+    #     channel_order[1] = int(input('Input the channel of LGM: '))
+    #     channel_order[2] = int(input('Input the channel of LWM: '))
+    #     channel_order[3] = int(input('Input the channel of RCRB: '))
+    #     channel_order[4] = int(input('Input the channel of RGM: '))
+    #     channel_order[5] = int(input('Input the channel of RWM: '))
+    # else:
+    #     channel_order=[3,4,1,7,8,5]
     
     # load the model
     model = load_model(weight_dir, custom_objects={'loss_func': loss_func, 'dice_coef': dice_coef, 'IoU': IoU}, compile=False)
