@@ -18,6 +18,7 @@ numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), sc
 &nbsp;&nbsp;&nbsp;&nbsp;<code>Y_dir = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>output_folder = 'path'</code><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% Optional<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>batch_size = 1</code>&nbsp;&nbsp;&nbsp;&nbsp;% Optional, default is 1.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights)</code></p>
   
 <li>Testing</li>
