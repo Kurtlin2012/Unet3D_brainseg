@@ -22,7 +22,7 @@ def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None, batch_siz
             
     Output:
         Trained weights: .h5 file
-            This model will check the dice coefficient in each iteration, if the coefficient grows, the weight will be kept until the end of training.
+            This model will check the dice coefficient in each epoch, if the coefficient grows, the weight will be kept.
         Line charts: .png file
             At the end of training, the line charts of dice coefficient, loss and IoU will be saved, including results of training data and validation data.
     """
