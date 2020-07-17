@@ -8,6 +8,7 @@ Evaluation matrices of the Unet3D model, including loss function, dice coefficie
 """
 
 def loss_func(y_true, y_pred):
+    from keras import backend as K
     
     def dice_loss(y_true, y_pred, smooth=1):
         intersection = K.sum(y_true * y_pred, axis=[1,2,3,4])
@@ -18,6 +19,7 @@ def loss_func(y_true, y_pred):
     return K.categorical_crossentropy(y_true, y_pred)
 
 def dice_coef(y_true, y_pred, smooth=1):
+    from keras import backend as K
     
     def recall(y_true, y_pred):
         """Recall metric.
@@ -44,6 +46,7 @@ def dice_coef(y_true, y_pred, smooth=1):
     return 2 * ( (precision * recall) / (precision + recall + K.epsilon()) )
     
 def IoU(y_true, y_pred, smooth=1):
+    from keras import backend as K
     intersection = K.sum(K.abs(y_true * y_pred), axis=[1,2,3,4])
     union = K.sum(y_true,[1,2,3,4])+K.sum(y_pred,[1,2,3,4])-intersection
     iou = K.mean((intersection + smooth) / (union + smooth), axis=0)
