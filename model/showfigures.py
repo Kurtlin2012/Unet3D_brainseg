@@ -112,7 +112,12 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
     cell_text.append(['CRB', str(float("{0:.1f}".format(vol_LCRB))), str(float("{0:.1f}".format((vol_LCRB/vol_ICV)*100))), str(float("{0:.1f}".format(vol_RCRB))), str(float("{0:.1f}".format((vol_RCRB/vol_ICV)*100))), str(float("{0:.1f}".format(abs((vol_LCRB-vol_RCRB)/(vol_LCRB+vol_RCRB)*100))))])
     
     # save the plot
-    plt.imshow(img_all)
-    plt.axis('off')
+    fig = plt.figure()
+    inset1 = fig.add_axes([-.13, 0, 1.2, 1.2])
+    inset1.imshow(img_all)
+    plt.setp(inset1, xticks=[], yticks=[])
+    table = plt.table(cellText = cell_text, bbox=[0.0, -1.0, 1.0, 1.0], edges='open')
+    table.auto_set_font_size(False)
+    table.set_fontsize(12)
     plt.savefig(output_image, dpi = 300, bbox_inches = "tight")
     plt.close('all')
