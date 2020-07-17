@@ -1,18 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Args:
-    X_dir: string
-        File path of the training data.
-    Y_dir: string
-        File path of the ground truth.
-    output_folder: string
-        Folder path to save the trained weights and the line charts of dice coefficient, loss and IoU.
-    pretrained_weights: string
-        File path of the pretrained weights(.h5 file).
-    batch_size: int
-        Size of samples in one iteration.
-
 Created on Tue Jun 30 15:24:51 2020
+
 @author: Ching-Ting Kurt Lin
 """
 
