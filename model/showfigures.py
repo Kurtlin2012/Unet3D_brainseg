@@ -18,7 +18,7 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
         voxel: float
             Transform the matrix from resolution to real length(px3 to mm3) to get the real volume.
         channel_order: list
-            The channel of LCRB, LGM, LWM, RCRB, RGM, RWM. The default is [3,4,1,7,8,5].
+            The channel of LCSF, LCRB, LGM, LWM, RCSF, RCRB, RGM, RWM. The default is [1,2,3,4,5,6,7,8].
     """
     
     import numpy as np
@@ -31,12 +31,25 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
         img = np.flip(img,0)
         return img
     
-    LGM = y_pred[:,:,:,:,channel_order[0]]
-    LWM = y_pred[:,:,:,:,channel_order[1]]
-    LCRB = y_pred[:,:,:,:,channel_order[2]]
-    RGM = y_pred[:,:,:,:,channel_order[3]]
-    RWM = y_pred[:,:,:,:,channel_order[4]]
+    LCSF = y_pred[:,:,:,:,channel_order[0]]
+    LCRB = y_pred[:,:,:,:,channel_order[1]]
+    LGM = y_pred[:,:,:,:,channel_order[2]]
+    LWM = y_pred[:,:,:,:,channel_order[3]]
+    RCSF = y_pred[:,:,:,:,channel_order[4]]
     RCRB = y_pred[:,:,:,:,channel_order[5]]
+    RGM = y_pred[:,:,:,:,channel_order[6]]
+    RWM = y_pred[:,:,:,:,channel_order[7]]
+    vol_LGM = np.sum(LGM == 1) * voxel / 1000
+    vol_LWM = np.sum(LWM == 1) * voxel / 1000
+    vol_LCSF = np.sum(LCSF == 1) * voxel / 1000
+    vol_LCRB = np.sum(LCRB == 1) * voxel / 1000
+    vol_RGM = np.sum(RGM == 1) * voxel / 1000
+    vol_RWM = np.sum(RWM == 1) * voxel / 1000
+    vol_RCSF = np.sum(RCSF == 1) * voxel / 1000
+    vol_RCRB = np.sum(RCRB == 1) * voxel / 1000
+    vol_LICV = vol_LGM + vol_LWM + vol_LCSF + vol_LCRB
+    vol_RICV = vol_RGM + vol_RWM + vol_RCSF + vol_RCRB
+    vol_ICV = vol_LICV + vol_RICV
     
     # Plot image in axial(1), coronal and sagittal
     GM = LGM + RGM
@@ -88,6 +101,15 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
     
     # ori_img, true, pred comparison
     img_all = np.concatenate((out1, out2, out3), axis=1)
+    
+    # Plot table
+    cell_text = []
+    cell_text.append(['ICV = ', str(float("{0:.1f}".format((vol_ICV)))) + ' cm3', ' ', ' ', ' ', ' '])
+    cell_text.append([' ', 'Left volume\n(cm3)', 'L Percentage\n(%)', 'Right volume\n(cm3)', 'R Percentage\n(%)', 'Asymmetric\nindex (%)'])
+    cell_text.append(['GM', str(float("{0:.1f}".format(vol_LGM))), str(float("{0:.1f}".format((vol_LGM/vol_ICV)*100))), str(float("{0:.1f}".format(vol_RGM))), str(float("{0:.1f}".format((vol_RGM/vol_ICV)*100))), str(float("{0:.1f}".format(abs((vol_LGM-vol_RGM)/(vol_LGM+vol_RGM)*100))))])
+    cell_text.append(['WM', str(float("{0:.1f}".format(vol_LWM))), str(float("{0:.1f}".format((vol_LWM/vol_ICV)*100))), str(float("{0:.1f}".format(vol_RWM))), str(float("{0:.1f}".format((vol_RWM/vol_ICV)*100))), str(float("{0:.1f}".format(abs((vol_LWM-vol_RWM)/(vol_LWM+vol_RWM)*100))))])
+    cell_text.append(['CSF', str(float("{0:.1f}".format(vol_LCSF))), str(float("{0:.1f}".format((vol_LCSF/vol_ICV)*100))), str(float("{0:.1f}".format(vol_RCSF))), str(float("{0:.1f}".format((vol_RCSF/vol_ICV)*100))), str(float("{0:.1f}".format(abs((vol_LCSF-vol_RCSF)/(vol_LCSF+vol_RCSF)*100))))])
+    cell_text.append(['CRB', str(float("{0:.1f}".format(vol_LCRB))), str(float("{0:.1f}".format((vol_LCRB/vol_ICV)*100))), str(float("{0:.1f}".format(vol_RCRB))), str(float("{0:.1f}".format((vol_RCRB/vol_ICV)*100))), str(float("{0:.1f}".format(abs((vol_LCRB-vol_RCRB)/(vol_LCRB+vol_RCRB)*100))))])
     
     # save the plot
     plt.imshow(img_all)
