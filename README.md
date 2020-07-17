@@ -14,12 +14,13 @@ numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), sc
   <li>(Optional) Data augmentation:</li></ol><br>
 <li>Training</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D_brainseg.train import unet3d_train</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Y_dir = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>output_folder = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>% pretrained_weights = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% Optional<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>batch_size = 1</code>&nbsp;&nbsp;&nbsp;&nbsp;% Optional, default is 1.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights)</code></p>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights, batch_size)</code>
+<pre>Args:
+  X_dir: Path of the original image matrix(5-D numpy file).
+  Y_dir: Path of the ground truth matrix(5-D numpy file).
+  output_folder: Path to store the weight of the model and line charts of dice_coef, loss and IoU.
+  pretrained_weight: Add if pretrained weight exists. Default is None.
+  batch_size: Number of the samples in each iteration. Default is 1.</p></pre>
   
 <li>Testing</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D_brainseg.predict import unet3d_predict</code><br/>
