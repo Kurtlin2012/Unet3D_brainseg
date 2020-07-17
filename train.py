@@ -5,7 +5,7 @@ Created on Tue Jun 30 15:24:51 2020
 @author: Ching-Ting Kurt Lin
 """
 
-def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None):
+def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None, batch_size=1):
     
     """
     Input:
@@ -17,6 +17,8 @@ def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None):
             Folder path to save the trained weights and the line charts of dice coefficient, loss and IoU.
         pretrained_weights: string
             File path of the pretrained weights(.h5 file).
+        batch_size: int
+            Size of samples in one iteration.
             
     Output:
         Trained weights: .h5 file
@@ -45,7 +47,7 @@ def unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights=None):
     model_checkpoint = ModelCheckpoint(output_folder + '/model-{epoch:05d}-{val_dice_coef:.5f}.h5', monitor='val_dice_coef', verbose=1, save_best_only=True, mode='max')
     
     # training
-    unet.fit(X, Y, batch_size=1, epochs=50, verbose=1, callbacks=[history, model_checkpoint, reduce_lr, early_stopping], validation_split=0.1, shuffle=True)
+    unet.fit(X, Y, batch_size, epochs=50, verbose=1, callbacks=[history, model_checkpoint, reduce_lr, early_stopping], validation_split=0.1, shuffle=True)
     
     # save a dictionary into a pickle file.
     hist = {'dice_coef':history.history['dice_coef'],'val_dice_coef':history.history['val_dice_coef'],'loss':history.history['loss'],'val_loss':history.history['val_loss']}
