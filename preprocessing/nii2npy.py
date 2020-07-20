@@ -32,16 +32,15 @@ def nii2npy(ori_folder, gt_folder, output_folder, resolution = [256,256,64]):
     import glob
     from skimage.transform import resize
     
-    os.chdir(ori_folder)
+    os.chdir(gt_folder)
     folder_list = os.listdir()
     folder_list.sort(key=lambda x:x)
     X = np.zeros([len(folder_list), resolution[0], resolution[1], resolution[2]], dtype=float)
     
     # Original image processing
     for i in range(len(folder_list)):
-        os.chdir(ori_folder + '/' + folder_list[i])
-        file = glob.glob('*.nii')
-        img_data = nib.load(file[0]).get_fdata()
+        os.chdir(ori_folder)
+        img_data = nib.load(folder_list[i] + '.nii').get_fdata()
         img_data = np.swapaxes(img_data,0,1)
         img_data = np.flip(img_data,0)
         img = resize(img_data, resolution)
@@ -85,4 +84,3 @@ def nii2npy(ori_folder, gt_folder, output_folder, resolution = [256,256,64]):
     os.chdir(output_folder)
     np.save('Y.npy', Y)
     print('Ground truth of the 3D images were combine together.')
-    del Y
