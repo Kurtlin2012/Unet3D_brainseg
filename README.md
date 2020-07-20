@@ -8,13 +8,15 @@
 numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy
 
 <br><strong><u>How to Use:</u></strong><br>
+
 <menu><li>Prepare</li><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;The structure of the files and the folders should be the same as the picture below.</p>
 <a href="https://imgur.com/DGH0y10"><img src="https://i.imgur.com/DGH0y10.png" title="File Structure" width="400" /></a>
 
-<li>Preprocessing</li>
+<br><li>Preprocessing</li>
   <ol><li>Convert nifti files to numpy matrices:</li>
   <li>(Optional) Data augmentation:</li></ol><br>
+
 <li>Training</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Open Python and type:
 <pre>from Unet3D_brainseg.train import unet3d_train
