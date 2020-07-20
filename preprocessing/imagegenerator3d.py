@@ -38,7 +38,7 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
     import numpy as np
     import random
     import scipy.ndimage as ndi
-    import xlsxwriter as xlw
+    import csv
     
     # load the numpy files
     X_ori = np.load(ori)
@@ -167,8 +167,6 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
     
     # saving the parameters
     os.chdir(output_folder) #dir
-    wb = xlw.Workbook('param.xlsx')
-    ws = wb.add_worksheet()
-    for row, item in enumerate(param):
-        ws.write_row(row, 0, item)
-    wb.close()
+    with open('output.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerows(param)
