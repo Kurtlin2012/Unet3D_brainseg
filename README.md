@@ -2,7 +2,7 @@
 <strong>Editor: Ching-Ting Kurt Lin</strong>
 <br>A Unet3D model for brain tissue segmentation by using MRI T1-weighted images.<br><br>
 <br><strong>Unet3D Model Diagram</strong><br>
-<a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="Unet3D Model Diagram" /></a>
+<br><a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="Unet3D Model Diagram" /></a>
 
 <br><strong><u>Modules needed:</u></strong><br>
 numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy
@@ -17,7 +17,7 @@ numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), sc
   <ol><li>Convert nifti files to numpy matrices:</li>
   <li>(Optional) Data augmentation:</li></ol><br>
 
-<li>Training</li>
+<br><li>Training</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Open Python and type:
 <pre>from Unet3D_brainseg.train import unet3d_train
 unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights, batch_size)
@@ -28,7 +28,7 @@ unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights, batch_size)
 &#35;    pretrained_weight: Add if pretrained weight exists. Default is None.
 &#35;    batch_size: Number of the samples in each iteration. Default is 1.</p></pre>
   
-<li>Testing</li>
+<br><li>Testing</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Open Python and type:
 <pre>from Unet3D_brainseg.predict import unet3d_predict
 unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)
