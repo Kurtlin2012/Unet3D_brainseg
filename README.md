@@ -2,13 +2,16 @@
 <strong>Editor: Ching-Ting Kurt Lin</strong>
 <br>A Unet3D model for brain tissue segmentation by using MRI T1 images.<br><br>
 <br><strong>Unet3D Model Diagram</strong><br>
-<a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="Unet3D Model Diagram" /></a>
 
 <br><strong><u>Modules needed:</u></strong><br>
 numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy
 
 <br><strong><u>How to Use:</u></strong><br>
 <menu><li>Prepare</li><br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;The structure of the files and the folders should be the same as the picture below.</p>
+<a href="https://imgur.com/DGH0y10"><img src="https://i.imgur.com/DGH0y10.png" title="File Structure" width="400" /></a>
+
 <li>Preprocessing</li>
   <ol><li>Convert nifti files to numpy matrices:</li>
   <li>(Optional) Data augmentation:</li></ol><br>
