@@ -24,10 +24,12 @@ unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights, batch_size)
 &#35;    batch_size: Number of the samples in each iteration. Default is 1.</p></pre>
   
 <li>Testing</li>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>from Unet3D_brainseg.predict import unet3d_predict</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>weight_dir = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>X_dir = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>ori_folder = 'path'</code>&nbsp;&nbsp;&nbsp;&nbsp;% This path should be same as ori_folder in nii2npy function.<br/> 
-&nbsp;&nbsp;&nbsp;&nbsp;<code>output_folder = 'path'</code><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>% channel_order = [3,4,1,7,8,5]</code>&nbsp;&nbsp;&nbsp;&nbsp;% Optional, change if the index of each channel is different from default.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<code>unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)</code></p></menu>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Open Python and type:
+<pre>from Unet3D_brainseg.predict import unet3d_predict
+unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)
+&#35; Args:
+&#35;    weight_dir: Path of the weight of the model(h5 file).
+&#35;    X_dir: Path of the original image matrix(5-D numpy file).
+&#35;    ori_folder: Path of the original image file(3-D nifti). This path should be same as ori_folder in nii2npy function.
+&#35;    output_folder: Path to store the report of the tissue segmentation.
+&#35;    channel_order: The order of the channel(LCSF, LCRB, LGM, LWM, RCSF, RCRB, RGM, RWM). Default is [1,2,3,4,5,6,7,8].</p></pre></menu>
