@@ -5,7 +5,7 @@
 <a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="source: imgur.com" /></a>
 
 <br><strong><u>Modules needed:</u></strong><br>
-numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy, xlsxwriter
+numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy
 
 <br><strong><u>How to Use:</u></strong><br>
 <menu><li>Prepare</li><br>
