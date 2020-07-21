@@ -7,6 +7,9 @@
 <br><strong><u>Modules needed:</u></strong><br>
 numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy
 
+<br><strong><u>Environment:</u></strong><br>
+tensorflow-gpu 2.1.0, keras 2.3.1
+
 <br><strong><u>How to Use:</u></strong><br>
 
 <menu><li>Prepare</li><br>
