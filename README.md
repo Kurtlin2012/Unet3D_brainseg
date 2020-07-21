@@ -16,7 +16,7 @@ numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), sc
 <br><li>Preprocessing</li>
   <ol><li>Convert nifti files to numpy matrices:</li></ol>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;After preparation(folder structure), open Python and type:
-  <pre>from Unet3D_brainseg.preprocessing.nii2npy import nii2npy
+  <pre>from Unet3D_brainseg.preprocessing.combine import nii2npy
 nii2npy(ori_folder, gt_folder, output_folder, resolution)
   &#35; Args:
   &#35;    ori_folder: Root directory of the original image.
