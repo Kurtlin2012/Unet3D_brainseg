@@ -20,7 +20,7 @@ numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), sc
 nii2npy(ori_folder, gt_folder, output_folder, resolution)
   &#35; Args:
   &#35;    ori_folder: Root directory of the original image.
-  &#35;    gt_folder: Root directory of the ground truth.
+  &#35;    gt_folder: Root directory of the label(ground truth).
   &#35;    output_folder: Path to store the 5-D numpy matrix for image and ground truth.
   &#35;    resolution: The size of 3-D matrix for each case. Default is [256(height), 256(width), 64(depth)].</pre></p>
   <ol><li value="2">(Optional) Data augmentation:</li></ol><br>
