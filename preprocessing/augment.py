@@ -12,7 +12,7 @@ Created on Fri Jun 17 09:48:50 2020
 #################################################################################
 
 
-def imagegenerator3d(ori, gt, output_folder, num = 50):
+def imagegenerator3d(ori, gt, output_folder, num = 50, combine = True):
     
     """
     Input:
@@ -24,6 +24,8 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
             Path of folder for augmented datas.
         num: integer
             The amount of augmented datas.
+        combine: boolean
+            Combine or separate the augment files. (Need to check the limitation of the RAM while combining all files.)
     
     Output:
         new_img: 5-D Numpy Matrix
@@ -46,7 +48,7 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
     
     # list for parameters
     param = [['No.', 'Original File Index','Shift Factor X','Shift Factor Y','Zoom Factor','Rotate Angle']]
-        
+    
     for i in range(num):
         # parameters
         order=random.randint(0,X_ori.shape[0]-1)
@@ -62,6 +64,11 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
         xaxis = ori_img.shape[0]
         yaxis = ori_img.shape[1]
         zaxis = ori_img.shape[2]
+        
+        # combine or separate
+        if combine == True:
+            X_com = np.zeros([1, xaxis, yaxis, zaxis, 1])
+            Y_com = np.zeros([1, xaxis, yaxis, zaxis, 1], dtype='bool')
         
         # flip
         if flip_axis != None:
@@ -105,8 +112,11 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
         param.append([i+1, order+1, shift_range_x, shift_range_y, zoom_range, rotate_angle])
         print('Saving augment X no.' + str(i+1))
         
-        # save the augment image separately
-        np.save(output_folder + '/X_' + str(i+1) + '.npy', new_img) 
+        # save the augment image separately or combine all files together
+        if combine == True:
+            X_com = np.concatenate((X_com, new_img), axis=0)
+        else:
+            np.save(output_folder + '/X_' + str(i+1) + '.npy', new_img) 
         del new_img
         
         # read original ground truth
@@ -162,7 +172,10 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
         
         # saving the augment ground truth separately
         print('Saving augment Y no.' + str(i+1))
-        np.save(output_folder + '/Y_' + str(i+1) + '.npy', new_gt) #dir
+        if combine == True:
+            Y_com = np.concatenate((Y_com, new_gt), axis=0)
+        else:
+            np.save(output_folder + '/Y_' + str(i+1) + '.npy', new_gt) #dir
         del new_gt
     
     # saving the parameters
@@ -170,3 +183,10 @@ def imagegenerator3d(ori, gt, output_folder, num = 50):
     with open('output.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerows(param)
+    
+    # saving the combined file
+    if combine == True:
+        X_com = X_com[1:,:,:,:,:]
+        Y_com = Y_com[1:,:,:,:,:]
+        np.save(output_folder + '/X.npy', X_com)
+        np.save(output_folder + '/Y.npy', Y_com)
