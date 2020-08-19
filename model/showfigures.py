@@ -58,18 +58,21 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
     GM = GM[0,:,:,:]
     WM = WM[0,:,:,:]
     CRB = CRB[0,:,:,:]
-    img1 = X[0,:,:,40,0]
-    GM1 = GM[:,:,40].astype(bool)
-    WM1 = WM[:,:,40].astype(bool)
-    CRB1 = CRB[:,:,40].astype(bool)
-    img2 = X[0,:,108,:,0]
-    GM2 = GM[:,108,:]
-    WM2 = WM[:,108,:]
-    CRB2 = CRB[:,108,:]
-    img3 = X[0,120,:,:,0]
-    GM3 = GM[120,:,:]
-    WM3 = WM[120,:,:]
-    CRB3 = CRB[120,:,:]
+    zaxis = int(X.shape[3] * 5 / 8)
+    img1 = X[0,:,:,zaxis,0]
+    GM1 = GM[:,:,zaxis].astype(bool)
+    WM1 = WM[:,:,zaxis].astype(bool)
+    CRB1 = CRB[:,:,zaxis].astype(bool)
+    yaxis = int(X.shape[2] * 7 / 16)
+    img2 = X[0,:,yaxis,:,0]
+    GM2 = GM[:,yaxis,:]
+    WM2 = WM[:,yaxis,:]
+    CRB2 = CRB[:,yaxis,:]
+    xaxis = int(X.shape[2] * 15 / 32)
+    img3 = X[0,xaxis,:,:,0]
+    GM3 = GM[xaxis,:,:]
+    WM3 = WM[xaxis,:,:]
+    CRB3 = CRB[xaxis,:,:]
     
     img1 = resize(img1, [256,256])
     img2 = plot_transform(resize(img2, [256,256]))
@@ -119,5 +122,5 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
     table = plt.table(cellText = cell_text, bbox=[0.0, -1.0, 1.0, 1.0], edges='open')
     table.auto_set_font_size(False)
     table.set_fontsize(12)
-    plt.savefig(output_image, dpi = 300, bbox_inches = "tight")
+    plt.savefig(output_image, dpi = 500, bbox_inches = "tight")
     plt.close('all')
