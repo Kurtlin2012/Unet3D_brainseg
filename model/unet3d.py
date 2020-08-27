@@ -35,7 +35,7 @@ def unet3d(input_shape=[256,256,64,1], channels=10, pretrained_weights=None, lea
     
     inputs = Input(shape=input_shape)
     enc = Conv3D(filters=32, kernel_size=(3,3,3), padding='same', kernel_initializer='glorot_normal')(inputs)
-    temp = inputs
+    temp = enc
     enc = BatchNormalization()(enc)
     enc = Activation("selu")(enc)
     enc = Conv3D(filters=32, kernel_size=(3,3,3), padding='same', kernel_initializer='glorot_normal')(enc)
