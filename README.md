@@ -27,7 +27,7 @@ nii2npy(ori_folder, gt_folder, output_folder, resolution)
   &#35;    output_folder: Path to store the 5-D numpy matrix for image and ground truth.
   &#35;    resolution: The size of 3-D matrix for each case. Default is [256(height), 256(width), 64(depth)].</pre></p>
   <ol><li value="2">(Optional) Data augmentation:</li></ol>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;If the training set is too small, after step 1, open Python and type:
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;If the dataset is too small, after step 1, open Python and type:
     <pre>from Unet3D_brainseg.preprocessing.augment import imagegenerator3d
 imagegenerator3d(ori, gt, output_folder, num = 50, combine = False):
   &#35; Args:
