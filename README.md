@@ -61,3 +61,7 @@ unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)
 
 <br><strong><li>Dice Coefficient of the Model: 0.81233</li></strong>
 <a href="https://imgur.com/6RViFhg"><img src="https://i.imgur.com/6RViFhg.png" title="Dice Coefficient" width="400" /></a>
+
+<br><strong><li>Predict report: </li></strong>
+<p>The report will show the results of the segmentation and the volume of each brain tissue.<br>
+<a href="https://imgur.com/316ml9O"><img src="https://i.imgur.com/316ml9O.png" title="Report" width="400" /></a></p>
