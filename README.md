@@ -18,7 +18,7 @@ tensorflow-gpu 2.1.0, keras 2.3.1
 
 <br><li>Preprocessing</li>
   <ol><li>Convert nifti files to numpy matrices:</li></ol>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;After preparation(folder structure), open Python and type:
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;After preparation(folder structure), type:
   <pre>from Unet3D_brainseg.preprocessing.combine import nii2npy
 nii2npy(ori_folder, gt_folder, output_folder, resolution)
   &#35; Args:
@@ -27,7 +27,7 @@ nii2npy(ori_folder, gt_folder, output_folder, resolution)
   &#35;    output_folder: Path to store the 5-D numpy matrix for image and ground truth.
   &#35;    resolution: The size of 3-D matrix for each case. Default is [256(height), 256(width), 64(depth)].</pre></p>
   <ol><li value="2">(Optional) Data augmentation:</li></ol>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;If the dataset is too small, after step 1, open Python and type:
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;If the dataset is too small, after step 1, type:
     <pre>from Unet3D_brainseg.preprocessing.augment import imagegenerator3d
 imagegenerator3d(ori, gt, output_folder, num = 50, combine = False):
   &#35; Args:
@@ -38,7 +38,7 @@ imagegenerator3d(ori, gt, output_folder, num = 50, combine = False):
   &#35;    combine: If combine == True, the program will combine all the augment data together (may OOM caused by the lack of RAM). If combine == False, the augment data will be generated independently.</pre></p>
   
 <br><li>Training</li>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Open Python and type:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>from Unet3D_brainseg.train import unet3d_train
 unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights, batch_size)
 &#35; Args:
@@ -49,7 +49,7 @@ unet3d_train(X_dir, Y_dir, output_folder, pretrained_weights, batch_size)
 &#35;    batch_size: Number of the samples in each iteration. Default is 1.</p></pre>
   
 <br><li>Testing</li>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Open Python and type:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>from Unet3D_brainseg.predict import unet3d_predict
 unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)
 &#35; Args:
