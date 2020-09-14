@@ -32,7 +32,7 @@ def parse_args(args):
     parser.add_argument('--weight', type = str, default = None, help = 'File path of the pretrained weights(h5 file).')
     parser.add_argument('--bz', type = int, default = 1, help = 'Batch size of the training.')
     parser.add_argument('--epochs', type = int, default = 50, help = 'Epoch of the training.')
-    parser.add_argument('--early', type = str, default = False, help = 'Enable/Disable the EarlyStopping function.')
+    parser.add_argument('--early', type = str, default = False, help = 'Enable/Disable the EarlyStopping function (True/False).')
     parser.add_argument('--init_f', type = int, default = 32, help = 'Number of the filter in the first encoder.')
     parser.add_argument('--lr', type = float, default = 1e-3, help = 'Set the learning rate of the model.')
     return parser.parse_args(args)
