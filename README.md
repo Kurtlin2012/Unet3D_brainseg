@@ -5,7 +5,7 @@
 <br><a href="https://imgur.com/juLtdhU"><img src="https://i.imgur.com/juLtdhU.png" title="Unet3D Model Diagram" /></a>
 
 <br><strong><u>Modules needed:</u></strong><br>
-numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy
+numpy, nibabel, matplotlib, keras, opencv-python(cv2), skicit-image(skimage), scipy, argparse
 
 <br><strong><u>Environment:</u></strong><br>
 tensorflow-gpu 2.1.0, keras 2.3.1
