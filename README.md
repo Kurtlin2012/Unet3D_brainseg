@@ -59,7 +59,7 @@ unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)
 &#35;    output_folder: Path to store the report of the tissue segmentation.
 &#35;    channel_order: The order of the channel(LCSF, LCRB, LGM, LWM, RCSF, RCRB, RGM, RWM). Default is [1,2,3,4,5,6,7,8].</p></pre></menu>
 
-<br><strong><li>Dice Coefficient of the Model: 0.81233</li></strong>
+<br><strong><li>Dice Coefficient of the Model: 0.81233 (N = 657)</li></strong>
 <a href="https://imgur.com/6RViFhg"><img src="https://i.imgur.com/6RViFhg.png" title="Dice Coefficient" width="400" /></a>
 
 <br><strong><li>Predict report: </li></strong>
