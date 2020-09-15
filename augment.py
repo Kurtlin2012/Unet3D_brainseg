@@ -36,12 +36,12 @@ def parse_args(args):
     parser.add_argument('--image', type = str, help = 'Folder path of the original data (5-D numpy matrix).')
     parser.add_argument('--label', type = str, help = 'Folder path of the label/ground truth (5-D numpy matrix).')
     parser.add_argument('--out', type = str, help = 'Folder path to keep the augment datas.')
-    parser.add_argument('--num', type = int, default = 500, help = 'The amount of augmented datas.')
-    parser.add_argument('--combine', type = str, default = True, help = 'Combine or separate the augment files (True/False). Need to check the limitation of the RAM while combining all files.')
-    parser.add_argument('--flip', type = str, default = False, help = 'Enable/Disable the flip function (True/False).')
-    parser.add_argument('--shiftran', type = int, default = 5, help = 'Setting the range of shifting pixels (only for x and y axis).')
-    parser.add_argument('--zoomran', type = float, default = 1.1, help = 'Setting the range of zooming factor (default = 1).')
-    parser.add_argument('--rotran', type = int, default = 5, help = 'Setting the range of rotating angle (degrees).')
+    parser.add_argument('--num', type = int, default = 500, help = 'The amount of augmented datas. Default is 500.')
+    parser.add_argument('--combine', type = str, default = True, help = 'Combine or separate the augment files (True/False). Need to check the limitation of the RAM while combining all files. Default is True.')
+    parser.add_argument('--flip', type = str, default = False, help = 'Enable/Disable the flip function (True/False). Default is False.')
+    parser.add_argument('--shiftran', type = int, default = 5, help = 'Setting the range of shifting pixels (only for x and y axis). Default is 5.')
+    parser.add_argument('--zoomran', type = float, default = 1.1, help = 'Setting the range of zooming factor. Default is 1 as the original size.')
+    parser.add_argument('--rotran', type = int, default = 5, help = 'Setting the range of rotating angle (degrees). Default is 5.')
     return parser.parse_args(args)
 
 
