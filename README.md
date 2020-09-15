@@ -28,7 +28,7 @@ tensorflow-gpu 2.1.0, keras 2.3.1
   &nbsp;&nbsp;&nbsp;&nbsp;--out OUT      Folder path to keep the combined matrices.
   &nbsp;&nbsp;&nbsp;&nbsp;--reso RESO    Set the shape of the 3D matrix. The input list should be [H(height), W(width), D(depth)]. 
   &nbsp;&nbsp;&nbsp;&nbsp;               Default is [256, 256, 64].</pre>
-  <ol><strong><li value="2">(Optional) Data augmentation:</strong></li></ol>
+  <br><ol><strong><li value="2">(Optional) Data augmentation:</strong></li></ol>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;If the dataset is too small, after step 1, type:
   <pre>python augment.py -h</pre>
   &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
