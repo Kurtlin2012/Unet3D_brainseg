@@ -37,23 +37,39 @@ tensorflow-gpu 2.1.0, keras 2.3.1
   &nbsp;&nbsp;&nbsp;&nbsp;--image IMAGE        Folder path of the original data (5-D numpy matrix).
   &nbsp;&nbsp;&nbsp;&nbsp;--label LABEL        Folder path of the label/ground truth (5-D numpy matrix).
   &nbsp;&nbsp;&nbsp;&nbsp;--out OUT            Folder path to keep the augment datas.
-  &nbsp;&nbsp;&nbsp;&nbsp;--num NUM            The amount of augmented datas.
+  &nbsp;&nbsp;&nbsp;&nbsp;--num NUM            The amount of augmented datas. Default is 500.
   &nbsp;&nbsp;&nbsp;&nbsp;--combine COMBINE    Combine or separate the augment files (True/False).
-  &nbsp;&nbsp;&nbsp;&nbsp;                     Need to check the limitation of the RAM while combining all files.
-  &nbsp;&nbsp;&nbsp;&nbsp;--flip FLIP          Enable/Disable the flip function (True/False).
-  &nbsp;&nbsp;&nbsp;&nbsp;--shiftran SHIFTRAN  Setting the range of shifting pixels (only for x and y axis).
-  &nbsp;&nbsp;&nbsp;&nbsp;--zoomran ZOOMRAN    Setting the range of zooming factor (default = 1).
-  &nbsp;&nbsp;&nbsp;&nbsp;--rotran ROTRAN      Setting the range of rotating angle (degrees).</pre>
+  &nbsp;&nbsp;&nbsp;&nbsp;                     Need to check the limitation of the RAM while combining all files. Default is True.
+  &nbsp;&nbsp;&nbsp;&nbsp;--flip FLIP          Enable/Disable the flip function (True/False). Default is False.
+  &nbsp;&nbsp;&nbsp;&nbsp;--shiftran SHIFTRAN  Setting the range of shifting pixels (only for x and y axis). Default is 5.
+  &nbsp;&nbsp;&nbsp;&nbsp;--zoomran ZOOMRAN    Setting the range of zooming factor. Default is 1 as the original size.
+  &nbsp;&nbsp;&nbsp;&nbsp;--rotran ROTRAN      Setting the range of rotating angle (degrees). Default is 5.</pre>
   
 <br><br><li><strong>Training</strong></li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>python train.py -h</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
+<pre>optional arguments:
+  &nbsp;&nbsp;&nbsp;&nbsp;-h, --help       show this help message and exit
+  &nbsp;&nbsp;&nbsp;&nbsp;--train TRAIN    File path of the training data (5-D numpy matrix).
+  &nbsp;&nbsp;&nbsp;&nbsp;--target TARGET  File path of the label/ground truth (5-D numpy matrix).
+  &nbsp;&nbsp;&nbsp;&nbsp;--out OUT        Folder path to save the trained weights and the line charts of dice coefficient, loss and IoU.
+  &nbsp;&nbsp;&nbsp;&nbsp;--weight WEIGHT  File path of the pretrained weights(h5 file). Default is None.
+  &nbsp;&nbsp;&nbsp;&nbsp;--bz BZ          Batch size of the training. Default is 1.
+  &nbsp;&nbsp;&nbsp;&nbsp;--epochs EPOCHS  Epoch of the training. Default is 50.
+  &nbsp;&nbsp;&nbsp;&nbsp;--early EARLY    Enable/Disable the EarlyStopping function (True/False). Default is False.
+  &nbsp;&nbsp;&nbsp;&nbsp;--init_f INIT_F  Number of the filter in the first encoder. Default is 32.
+  &nbsp;&nbsp;&nbsp;&nbsp;--lr LR          Set the learning rate of the model. Default is 0.001.</pre>
   
 <br><br><li><strong>Testing</strong></li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>python predict.py -h</pre>
-&nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p></menu>
+&nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
+<pre>optional arguments:
+  &nbsp;&nbsp;&nbsp;&nbsp;-h, --help       show this help message and exit
+  &nbsp;&nbsp;&nbsp;&nbsp;--weight WEIGHT  File path of the pretrained weights(h5 file).
+  &nbsp;&nbsp;&nbsp;&nbsp;--test TEST      Folder path of the testing data(nifti file).
+  &nbsp;&nbsp;&nbsp;&nbsp;--out OUT        Folder path to save the generated reports.</pre></menu>
 
 <br><br><strong><li>Dice Coefficient of the Model: 0.81233 (N = 657)</li></strong>
 <a href="https://imgur.com/6RViFhg"><img src="https://i.imgur.com/6RViFhg.png" title="Dice Coefficient" width="400" /></a>
