@@ -29,7 +29,7 @@ def parse_args(args):
     parser.add_argument('--train', type = str, help = 'File path of the training data (5-D numpy matrix).')
     parser.add_argument('--target', type = str, help = 'File path of the label/ground truth (5-D numpy matrix).')
     parser.add_argument('--out', type = str, help = 'Folder path to save the trained weights and the line charts of dice coefficient, loss and IoU.')
-    parser.add_argument('--weight', type = str, default = None, help = 'File path of the pretrained weights(h5 file). Default in None.')
+    parser.add_argument('--weight', type = str, default = None, help = 'File path of the pretrained weights(h5 file). Default is None.')
     parser.add_argument('--bz', type = int, default = 1, help = 'Batch size of the training. Default is 1.')
     parser.add_argument('--epochs', type = int, default = 50, help = 'Epoch of the training. Default is 50.')
     parser.add_argument('--early', type = str, default = False, help = 'Enable/Disable the EarlyStopping function (True/False). Default is False.')
