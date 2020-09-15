@@ -20,7 +20,7 @@ tensorflow-gpu 2.1.0, keras 2.3.1
   <ol><li>Convert nifti files to numpy matrices:</li></ol>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;After preparation(folder structure), type:
   <pre>python nii2npy.py -h</pre>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
+  &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
   <pre>optional arguments:
   &nbsp;&nbsp;&nbsp;&nbsp;-h, --help     show this help message and exit
   &nbsp;&nbsp;&nbsp;&nbsp;--image IMAGE  Folder path of the original data.
@@ -31,7 +31,7 @@ tensorflow-gpu 2.1.0, keras 2.3.1
   <ol><li value="2">(Optional) Data augmentation:</li></ol>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;If the dataset is too small, after step 1, type:
   <pre>python augment.py -h</pre>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
+  &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
   <pre>optional arguments:
   &nbsp;&nbsp;&nbsp;&nbsp;-h, --help           show this help message and exit
   &nbsp;&nbsp;&nbsp;&nbsp;--image IMAGE        Folder path of the original data (5-D numpy matrix).
@@ -48,18 +48,12 @@ tensorflow-gpu 2.1.0, keras 2.3.1
 <br><li>Training</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>python train.py -h</pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
+&nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
   
 <br><li>Testing</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
-<pre>from Unet3D_brainseg.predict import unet3d_predict
-unet3d_predict(weight_dir, X_dir, ori_folder, output_folder, channel_order)
-&#35; Args:
-&#35;    weight_dir: Path of the weight of the model(h5 file).
-&#35;    X_dir: Path of the original image matrix(5-D numpy file).
-&#35;    ori_folder: Path of the original image file(3-D nifti). This path should be same as ori_folder in nii2npy function.
-&#35;    output_folder: Path to store the report of the tissue segmentation.
-&#35;    channel_order: The order of the channel(LCSF, LCRB, LGM, LWM, RCSF, RCRB, RGM, RWM). Default is [1,2,3,4,5,6,7,8].</p></pre></menu>
+<pre>python predict.py -h</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p></menu>
 
 <br><strong><li>Dice Coefficient of the Model: 0.81233 (N = 657)</li></strong>
 <a href="https://imgur.com/6RViFhg"><img src="https://i.imgur.com/6RViFhg.png" title="Dice Coefficient" width="400" /></a>
