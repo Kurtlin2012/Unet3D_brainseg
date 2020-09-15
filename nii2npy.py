@@ -29,7 +29,7 @@ def parse_args(args):
     parser.add_argument('--image', type = str, help = 'Folder path of the original data.')
     parser.add_argument('--label', type = str, help = 'Folder path of the label/ground truth.')
     parser.add_argument('--out', type = str, help = 'Folder path to keep the combined matrices.')
-    parser.add_argument('--reso', type = list, default = [256, 256, 64], help = 'Set the shape of the 3D matrix. The input list should be [H(height), W(width), D(depth)].')
+    parser.add_argument('--reso', type = list, default = [256, 256, 64], help = 'Set the shape of the 3D matrix. The input list should be [H(height), W(width), D(depth)]. Default is [256, 256, 64].')
     return parser.parse_args(args)
 
 
