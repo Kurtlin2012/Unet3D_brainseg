@@ -12,8 +12,8 @@ tensorflow-gpu 2.1.0, keras 2.3.1
 
 <br><strong><u>How to Use:</u></strong><br>
 
-<menu><li><strong>Prepare</strong></li><br>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;The structure of the files and the folders should be the same as the picture below.</p>
+<menu><li><strong>Preparation</strong></li><br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;The structure of the files and the folders should be the same as the picture below. All files should be .nii file.</p>
 <a href="https://imgur.com/DGH0y10"><img src="https://i.imgur.com/DGH0y10.png" title="File Structure" width="400" /></a>
 
 <br><br><li><strong>Preprocessing</strong></li>
