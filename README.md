@@ -12,12 +12,12 @@ tensorflow-gpu 2.1.0, keras 2.3.1
 
 <br><strong><u>How to Use:</u></strong><br>
 
-<menu><li>Prepare</li><br>
+<menu><li><strong>Prepare</strong></li><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;The structure of the files and the folders should be the same as the picture below.</p>
 <a href="https://imgur.com/DGH0y10"><img src="https://i.imgur.com/DGH0y10.png" title="File Structure" width="400" /></a>
 
-<br><br><li>Preprocessing</li>
-  <ol><li>Convert nifti files to numpy matrices:</li></ol>
+<br><br><li><strong>Preprocessing</strong></li>
+  <ol><strong><li>Convert nifti files to numpy matrices:</strong></li></ol>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;After preparation(folder structure), type:
   <pre>python nii2npy.py -h</pre>
   &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
@@ -28,7 +28,7 @@ tensorflow-gpu 2.1.0, keras 2.3.1
   &nbsp;&nbsp;&nbsp;&nbsp;--out OUT      Folder path to keep the combined matrices.
   &nbsp;&nbsp;&nbsp;&nbsp;--reso RESO    Set the shape of the 3D matrix. The input list should be [H(height), W(width), D(depth)]. 
   &nbsp;&nbsp;&nbsp;&nbsp;               Default is [256, 256, 64].</pre>
-  <ol><li value="2">(Optional) Data augmentation:</li></ol>
+  <ol><strong><li value="2">(Optional) Data augmentation:</strong></li></ol>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;If the dataset is too small, after step 1, type:
   <pre>python augment.py -h</pre>
   &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
@@ -45,12 +45,12 @@ tensorflow-gpu 2.1.0, keras 2.3.1
   &nbsp;&nbsp;&nbsp;&nbsp;--zoomran ZOOMRAN    Setting the range of zooming factor (default = 1).
   &nbsp;&nbsp;&nbsp;&nbsp;--rotran ROTRAN      Setting the range of rotating angle (degrees).</pre>
   
-<br><br><li>Training</li>
+<br><br><li><strong>Training</strong></li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>python train.py -h</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
   
-<br><br><li>Testing</li>
+<br><br><li><strong>Testing</strong></li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>python predict.py -h</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p></menu>
