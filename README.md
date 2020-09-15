@@ -16,7 +16,7 @@ tensorflow-gpu 2.1.0, keras 2.3.1
 <p>&nbsp;&nbsp;&nbsp;&nbsp;The structure of the files and the folders should be the same as the picture below.</p>
 <a href="https://imgur.com/DGH0y10"><img src="https://i.imgur.com/DGH0y10.png" title="File Structure" width="400" /></a>
 
-<br><li>Preprocessing</li>
+<br><br><li>Preprocessing</li>
   <ol><li>Convert nifti files to numpy matrices:</li></ol>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;After preparation(folder structure), type:
   <pre>python nii2npy.py -h</pre>
@@ -45,19 +45,19 @@ tensorflow-gpu 2.1.0, keras 2.3.1
   &nbsp;&nbsp;&nbsp;&nbsp;--zoomran ZOOMRAN    Setting the range of zooming factor (default = 1).
   &nbsp;&nbsp;&nbsp;&nbsp;--rotran ROTRAN      Setting the range of rotating angle (degrees).</pre>
   
-<br><li>Training</li>
+<br><br><li>Training</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>python train.py -h</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
   
-<br><li>Testing</li>
+<br><br><li>Testing</li>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Type:
 <pre>python predict.py -h</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p></menu>
 
-<br><strong><li>Dice Coefficient of the Model: 0.81233 (N = 657)</li></strong>
+<br><br><strong><li>Dice Coefficient of the Model: 0.81233 (N = 657)</li></strong>
 <a href="https://imgur.com/6RViFhg"><img src="https://i.imgur.com/6RViFhg.png" title="Dice Coefficient" width="400" /></a>
 
-<br><strong><li>Predict report: </li></strong>
+<br><br><strong><li>Predict report: </li></strong>
 <p>The report will show the results of the segmentation and the volume of each brain tissue.<br>
 <a href="https://imgur.com/316ml9O"><img src="https://i.imgur.com/316ml9O.png" title="Report" width="400" /></a></p>
