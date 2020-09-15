@@ -59,7 +59,9 @@ def main(args = None):
     # Training
     history = History()
     reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-20, verbose=1)
-    model_checkpoint = ModelCheckpoint(args.out + '/model-{epoch:05d}-{val_dice_coef:.5f}.h5', monitor='val_dice_coef', verbose=1, save_best_only=True, mode='max')
+    if not os.path.exists(args.out + '/Model'):
+        os.mkdir(args.out + '/Model')
+    model_checkpoint = ModelCheckpoint(args.out + '/Model/model-{epoch:05d}-{val_dice_coef:.5f}.h5', monitor='val_dice_coef', verbose=1, save_best_only=True, mode='max')
     if args.early == 'True':
         early_stopping = EarlyStopping(monitor='val_dice_coef', patience=15, verbose=2, mode='max')
         model.fit(X, Y, batch_size = args.bz, epochs = args.epochs, verbose=1, callbacks=[history, model_checkpoint, reduce_lr, early_stopping], validation_split=0.1, shuffle=True)
