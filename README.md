@@ -67,7 +67,7 @@ tensorflow-gpu 2.1.0, keras 2.3.1
 &nbsp;&nbsp;&nbsp;&nbsp;to check the changeable arguments.</p>
 <pre>optional arguments:
   &nbsp;&nbsp;&nbsp;&nbsp;-h, --help       show this help message and exit
-  &nbsp;&nbsp;&nbsp;&nbsp;--weight WEIGHT  File path of the pretrained weights(h5 file).
+  &nbsp;&nbsp;&nbsp;&nbsp;--weight WEIGHT  File path to load the weights(h5 file).
   &nbsp;&nbsp;&nbsp;&nbsp;--test TEST      Folder path of the testing data(nifti file).
   &nbsp;&nbsp;&nbsp;&nbsp;--out OUT        Folder path to save the generated reports.</pre></menu>
 
