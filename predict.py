@@ -38,7 +38,7 @@ def main(args = None):
     
     # input the order of LCRB, LGM, LWM, RCRB, RGM, RWM channels
     channel_order = np.zeros([6,], dtype=int)
-    ask = input('Do you want to change the order of the channel? (Y/N)\nDefault channel order is: [3(LGM), 4(LWM), 1(LCRB), 7(RGM), 8(RWM), 5(RCRB)]')
+    ask = input('Default channel order is: [3(LGM), 4(LWM), 1(LCRB), 7(RGM), 8(RWM), 5(RCRB)]\nDo you want to change the order of the channel? (Y/N)')
     if ask == 'Y' or ask == 'y':
         channel_order[0] = int(input('Input the channel of LGM: '))
         channel_order[1] = int(input('Input the channel of LWM: '))
