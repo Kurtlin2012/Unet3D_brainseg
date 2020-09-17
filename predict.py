@@ -25,7 +25,7 @@ Output:
 
 def parse_args(args):
     parser = argparse.ArgumentParser(description='Unet3D prediction')
-    parser.add_argument('--weight', type = str, help = 'File path to load the weights(h5 file)(h5 file).')
+    parser.add_argument('--weight', type = str, help = 'File path to load the weights(h5 file).')
     parser.add_argument('--test', type = str, help = 'Folder path of the testing data(nifti file).')
     parser.add_argument('--out', type = str, help = 'Folder path to save the generated reports.')
     return parser.parse_args(args)
