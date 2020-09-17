@@ -18,7 +18,7 @@ def unet3d_report(X, y_pred, output_image, voxel, channel_order):
         voxel: float
             Transform the matrix from resolution to real length(px3 to mm3) to get the real volume.
         channel_order: list
-            The channel of LCRB, LGM, LWM, RCRB, RGM, RWM. The default is [3,4,1,7,8,5].
+            The channel of LGM, LWM, LCRB, RGM, RWM, RCRB. The default is [3,4,1,7,8,5].
     """
     
     import numpy as np
