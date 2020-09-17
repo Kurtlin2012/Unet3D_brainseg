@@ -38,14 +38,14 @@ def main(args = None):
     
     # input the order of LCRB, LGM, LWM, RCRB, RGM, RWM channels
     channel_order = np.zeros([6,], dtype=int)
-    ask = input('Do you want to change the order of the channel? (Y/N)')
+    ask = input('Do you want to change the order of the channel? (Y/N)\nDefault channel order is: [3(LGM), 4(LWM), 1(LCRB), 7(RGM), 8(RWM), 5(RCRB)]')
     if ask == 'Y' or ask == 'y':
-        channel_order[0] = int(input('Input the channel of LCRB: '))
-        channel_order[1] = int(input('Input the channel of LGM: '))
-        channel_order[2] = int(input('Input the channel of LWM: '))
-        channel_order[3] = int(input('Input the channel of RCRB: '))
-        channel_order[4] = int(input('Input the channel of RGM: '))
-        channel_order[5] = int(input('Input the channel of RWM: '))
+        channel_order[0] = int(input('Input the channel of LGM: '))
+        channel_order[1] = int(input('Input the channel of LWM: '))
+        channel_order[2] = int(input('Input the channel of LCRB: '))
+        channel_order[3] = int(input('Input the channel of RGM: '))
+        channel_order[4] = int(input('Input the channel of RWM: '))
+        channel_order[5] = int(input('Input the channel of RCRB: '))
     else:
         channel_order=[3,4,1,7,8,5]
     
@@ -55,11 +55,11 @@ def main(args = None):
     # load the 3d image matrix
     file_list = os.listdir(args.test)
     for i in range(len(file_list)):
-        X = nib.load(file_list[i])
+        X = nib.load(args.test + '/' + file_list[i])
         X_header = X.header
-        X = np.expand_dims(np.expand_dims(X, axis=0), axis=4)
         X = np.swapaxes(X, 0, 1)
         X = np.flip(X, 0)
+        X = np.expand_dims(np.expand_dims(X, axis=0), axis=4)
         voxel = (X_header['dim'][1] * X_header['pixdim'][1]) * (X_header['dim'][2] * X_header['pixdim'][2]) * (X_header['dim'][3] * X_header['pixdim'][3]) / (X.shape[1] * X.shape[2] * X.shape[3])
         
         # predict one case each time
