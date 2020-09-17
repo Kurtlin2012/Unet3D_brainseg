@@ -12,7 +12,7 @@ import sys
 import numpy as np
 from keras.models import load_model
 import nibabel as nib
-from .model.showfigures import unet3d_report
+from model.showfigures import unet3d_report
 from tools import categorise_prediction
 
 """
