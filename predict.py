@@ -14,6 +14,7 @@ from keras.models import load_model
 import nibabel as nib
 from model.showfigures import unet3d_report
 from tools import categorise_prediction
+from skimage.transform import resize
 
 """
 
@@ -51,6 +52,7 @@ def main(args = None):
     
     # load the model
     model = load_model(args.weight, compile=False)
+    shape = [model.input_shape[1], model.input_shape[2], model.input_shape[3]]
     
     # load the 3d image matrix
     file_list = os.listdir(args.test)
@@ -60,6 +62,8 @@ def main(args = None):
         X = X_file.get_fdata()
         X = np.swapaxes(X, 0, 1)
         X = np.flip(X, 0)
+        X = resize(X, shape, order=0)
+        X = (X - X.mean()) / X.std()
         X = np.expand_dims(np.expand_dims(X, axis=0), axis=4)
         voxel = (X_header['dim'][1] * X_header['pixdim'][1]) * (X_header['dim'][2] * X_header['pixdim'][2]) * (X_header['dim'][3] * X_header['pixdim'][3]) / (X.shape[1] * X.shape[2] * X.shape[3])
         
