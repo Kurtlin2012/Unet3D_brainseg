@@ -55,8 +55,9 @@ def main(args = None):
     # load the 3d image matrix
     file_list = os.listdir(args.test)
     for i in range(len(file_list)):
-        X = nib.load(args.test + '/' + file_list[i])
-        X_header = X.header
+        X_file = nib.load(args.test + '/' + file_list[i])
+        X_header = X_file.header
+        X = X_file.get_fdata()
         X = np.swapaxes(X, 0, 1)
         X = np.flip(X, 0)
         X = np.expand_dims(np.expand_dims(X, axis=0), axis=4)
